@@ -22,7 +22,6 @@
     "express": "latest",
     "mammoth": "latest",
     "multer": "latest",
-    "serverless-http": "^4.0.0",
     "vite": "latest",
     "vue": "latest",
     "vue-router": "^5.0.6",
