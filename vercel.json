@@ -10,5 +10,9 @@
       "source": "/api/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "no-store" }]
     }
+  ],
+  "rewrites": [
+    { "source": "/detect", "destination": "/" },
+    { "source": "/reduce", "destination": "/" }
   ]
 }
