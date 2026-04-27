@@ -1,10 +1,10 @@
 import { Router } from 'express'
 import multer from 'multer'
 import { z } from 'zod'
-import { textAnalysisRequestSchema } from '../../src/types/analysis'
+import { rewriteTextRequestSchema } from '../../src/types/rewrite'
 import { isDocx, isLegacyDoc, parseDocx } from '../services/documentParser'
-import { analyzeTextWithLlm, hasLlmConfig } from '../services/llmDetector'
-import { analyzeTextWithMock } from '../services/mockDetector'
+import { hasLlmConfig, rewriteTextWithLlm } from '../services/llmDetector'
+import { rewriteTextWithMock } from '../services/mockRewriter'
 import { assertTextLength, getErrorMessage } from './shared'
 
 const upload = multer({
@@ -16,12 +16,12 @@ const upload = multer({
 
 const router = Router()
 
-async function analyzeText(text: string, sourceType: 'text' | 'docx') {
+async function rewriteText(text: string, sourceType: 'text' | 'docx') {
   if (!hasLlmConfig()) {
-    return analyzeTextWithMock(text, sourceType)
+    return rewriteTextWithMock(text, sourceType)
   }
 
-  return analyzeTextWithLlm(text, sourceType)
+  return rewriteTextWithLlm(text, sourceType)
 }
 
 router.post('/', upload.single('file'), async (req, res) => {
@@ -35,18 +35,18 @@ router.post('/', upload.single('file'), async (req, res) => {
 
       if (!isDocx(req.file.originalname, req.file.mimetype)) {
         return res.status(400).json({
-          message: '仅支持 DOCX 文档，或直接粘贴文本进行检测。',
+          message: '仅支持 DOCX 文档，或直接粘贴文本进行改写。',
         })
       }
 
       const text = await parseDocx(req.file.buffer)
       assertTextLength(text)
-      return res.json(await analyzeText(text, 'docx'))
+      return res.json(await rewriteText(text, 'docx'))
     }
 
-    const body = textAnalysisRequestSchema.parse(req.body)
+    const body = rewriteTextRequestSchema.parse(req.body)
     assertTextLength(body.text)
-    return res.json(await analyzeText(body.text, body.sourceType))
+    return res.json(await rewriteText(body.text, body.sourceType))
   } catch (error) {
     if (error instanceof z.ZodError) {
       return res.status(400).json({ message: '请求格式不正确，请检查输入内容。' })
@@ -57,7 +57,7 @@ router.post('/', upload.single('file'), async (req, res) => {
     }
 
     return res.status(500).json({
-      message: getErrorMessage(error, '检测失败，请稍后重试。'),
+      message: getErrorMessage(error, '改写失败，请稍后重试。'),
     })
   }
 })

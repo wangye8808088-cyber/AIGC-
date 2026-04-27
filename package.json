@@ -17,11 +17,14 @@
     "@vitejs/plugin-vue": "latest",
     "concurrently": "latest",
     "cors": "latest",
+    "docx": "latest",
+    "dotenv": "latest",
     "express": "latest",
     "mammoth": "latest",
     "multer": "latest",
     "vite": "latest",
     "vue": "latest",
+    "vue-router": "^5.0.6",
     "zod": "latest"
   },
   "devDependencies": {
