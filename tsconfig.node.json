@@ -15,5 +15,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["vite.config.ts", "server/**/*.ts", "vitest.config.ts"]
+  "include": ["api/**/*.ts", "vite.config.ts", "server/**/*.ts", "vitest.config.ts"]
 }
