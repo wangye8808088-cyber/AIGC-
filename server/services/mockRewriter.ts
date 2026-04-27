@@ -1,5 +1,5 @@
-import type { RewriteResult } from '../../src/types/rewrite'
-import { stabilizeRewriteResult } from './rewriteStabilizer'
+import type { RewriteResult } from '../../src/types/rewrite.js'
+import { stabilizeRewriteResult } from './rewriteStabilizer.js'
 
 const replacements: Array<[string, string]> = [
   ['综上所述，', '结合上面的内容来看，'],

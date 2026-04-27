@@ -1,4 +1,4 @@
-import type { AnalysisLevel, AnalysisResult, Evidence } from '../../src/types/analysis'
+import type { AnalysisLevel, AnalysisResult, Evidence } from '../../src/types/analysis.js'
 
 const templatePatterns = [
   { phrase: '综上所述', type: '模板化总结' },

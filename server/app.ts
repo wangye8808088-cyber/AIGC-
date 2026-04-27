@@ -1,9 +1,9 @@
 import cors from 'cors'
 import express from 'express'
 import 'dotenv/config'
-import analyzeRouter from './routes/analyze'
-import exportRouter from './routes/export'
-import rewriteRouter from './routes/rewrite'
+import analyzeRouter from './routes/analyze.js'
+import exportRouter from './routes/export.js'
+import rewriteRouter from './routes/rewrite.js'
 
 const app = express()
 

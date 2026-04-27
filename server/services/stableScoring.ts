@@ -1,4 +1,4 @@
-import type { AnalysisLevel, AnalysisResult } from '../../src/types/analysis'
+import type { AnalysisLevel, AnalysisResult } from '../../src/types/analysis.js'
 
 const templatePhrases = [
   '综上所述',

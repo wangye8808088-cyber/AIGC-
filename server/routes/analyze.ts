@@ -1,11 +1,11 @@
 import { Router } from 'express'
 import multer from 'multer'
 import { z } from 'zod'
-import { textAnalysisRequestSchema } from '../../src/types/analysis'
-import { isDocx, isLegacyDoc, parseDocx } from '../services/documentParser'
-import { analyzeTextWithLlm, hasLlmConfig } from '../services/llmDetector'
-import { analyzeTextWithMock } from '../services/mockDetector'
-import { assertTextLength, getErrorMessage } from './shared'
+import { textAnalysisRequestSchema } from '../../src/types/analysis.js'
+import { isDocx, isLegacyDoc, parseDocx } from '../services/documentParser.js'
+import { analyzeTextWithLlm, hasLlmConfig } from '../services/llmDetector.js'
+import { analyzeTextWithMock } from '../services/mockDetector.js'
+import { assertTextLength, getErrorMessage } from './shared.js'
 
 const upload = multer({
   storage: multer.memoryStorage(),

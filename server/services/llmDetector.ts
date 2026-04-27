@@ -1,8 +1,8 @@
-import { analysisResultSchema, type AnalysisResult } from '../../src/types/analysis'
-import { rewriteResultSchema, type RewriteResult } from '../../src/types/rewrite'
-import { getAnalysisCacheKey, getCachedAnalysis, setCachedAnalysis } from './analysisCache'
-import { stabilizeRewriteResult } from './rewriteStabilizer'
-import { stabilizeAnalysisResult } from './stableScoring'
+import { analysisResultSchema, type AnalysisResult } from '../../src/types/analysis.js'
+import { rewriteResultSchema, type RewriteResult } from '../../src/types/rewrite.js'
+import { getAnalysisCacheKey, getCachedAnalysis, setCachedAnalysis } from './analysisCache.js'
+import { stabilizeRewriteResult } from './rewriteStabilizer.js'
+import { stabilizeAnalysisResult } from './stableScoring.js'
 
 type EnvLike = Record<string, string | undefined>
 

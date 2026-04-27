@@ -1,4 +1,4 @@
-import type { RewriteResult } from '../../src/types/rewrite'
+import type { RewriteResult } from '../../src/types/rewrite.js'
 
 const cleanupRules: Array<[RegExp, string]> = [
   [/综上所述[，,]?/g, '结合前面的内容，'],

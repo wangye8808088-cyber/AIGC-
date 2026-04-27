@@ -1,11 +1,11 @@
 import { Router } from 'express'
 import multer from 'multer'
 import { z } from 'zod'
-import { rewriteTextRequestSchema } from '../../src/types/rewrite'
-import { isDocx, isLegacyDoc, parseDocx } from '../services/documentParser'
-import { hasLlmConfig, rewriteTextWithLlm } from '../services/llmDetector'
-import { rewriteTextWithMock } from '../services/mockRewriter'
-import { assertTextLength, getErrorMessage } from './shared'
+import { rewriteTextRequestSchema } from '../../src/types/rewrite.js'
+import { isDocx, isLegacyDoc, parseDocx } from '../services/documentParser.js'
+import { hasLlmConfig, rewriteTextWithLlm } from '../services/llmDetector.js'
+import { rewriteTextWithMock } from '../services/mockRewriter.js'
+import { assertTextLength, getErrorMessage } from './shared.js'
 
 const upload = multer({
   storage: multer.memoryStorage(),

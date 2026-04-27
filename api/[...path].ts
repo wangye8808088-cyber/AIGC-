@@ -12,7 +12,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   }
 
   try {
-    const { app } = await import('../server/app')
+    const { app } = await import('../server/app.js')
     app(req, res)
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown serverless startup error'

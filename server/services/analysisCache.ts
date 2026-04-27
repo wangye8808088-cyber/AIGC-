@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto'
-import type { AnalysisResult } from '../../src/types/analysis'
-import { normalizeTextForScoring } from './stableScoring'
+import type { AnalysisResult } from '../../src/types/analysis.js'
+import { normalizeTextForScoring } from './stableScoring.js'
 
 const cache = new Map<string, AnalysisResult>()
 

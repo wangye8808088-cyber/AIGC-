@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { z } from 'zod'
-import { buildDocHtml, buildDocxBuffer } from '../services/documentExporter'
+import { buildDocHtml, buildDocxBuffer } from '../services/documentExporter.js'
 
 const exportSchema = z.object({
   text: z.string().min(1),
